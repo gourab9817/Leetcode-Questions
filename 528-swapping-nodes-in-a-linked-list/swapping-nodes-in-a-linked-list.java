@@ -23,14 +23,12 @@ class Solution {
         ListNode temp2=head;
 
         int n=size(head);
-        int m=n-k;
-        for (int i = 1; i < k; i++) {
-            temp1 = temp1.next;
+        
+        for(int i=1;i<k;i++){
+            temp1=temp1.next;
         }
-
-        // Move `temp2` to the (n-k+1)-th node
-        for (int i = 1; i <= n - k; i++) {
-            temp2 = temp2.next;
+        for(int i=1;i<=n-k;i++){
+            temp2=temp2.next;
         }
         int x=temp2.val;
         temp2.val=temp1.val;
