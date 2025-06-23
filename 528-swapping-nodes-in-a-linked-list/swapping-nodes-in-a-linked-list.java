@@ -9,30 +9,38 @@
  * }
  */
 class Solution {
-    public static int size(ListNode head){
-        int size=0;
+    public ListNode swapNodes(ListNode head, int k) {
+        if(head==null){
+            return null;
+        }
         ListNode temp=head;
+        int count=0;
+
         while(temp!=null){
-            size++;
+            count++;
             temp=temp.next;
         }
-        return size;
-    }
-    public ListNode swapNodes(ListNode head, int k) {
-        ListNode temp1=head;
-        ListNode temp2=head;
-
-        int n=size(head);
-        
+        if (k > count || k <= 0) { 
+            return head;
+        }
+        temp=head;
+        int lk=count-k+1;
+        ListNode a=head;
         for(int i=1;i<k;i++){
-            temp1=temp1.next;
+            
+            temp=temp.next;
         }
-        for(int i=1;i<=n-k;i++){
-            temp2=temp2.next;
+        a=temp;
+        temp=head;
+        ListNode b=head;
+        for(int i=1;i<lk;i++){
+            
+            temp=temp.next;
         }
-        int x=temp2.val;
-        temp2.val=temp1.val;
-        temp1.val=x;
+        b=temp;
+        int x=a.val;
+        a.val=b.val;
+        b.val=x;
         return head;
     }
 }
