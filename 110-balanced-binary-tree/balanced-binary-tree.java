@@ -18,21 +18,19 @@ class Solution {
         if(root==null){
             return true;
         }
-        int x=height(root.left);
-        int y=height(root.right);
-        if(Math.abs(x-y)>1){
+            int a=maxDepth(root.left);
+            int b=maxDepth(root.right);
+        
+        if(Math.abs(a-b)>1){
             return false;
         }
-        
-        return isBalanced(root.left)&&isBalanced(root.right);        
+        return isBalanced(root.left)&& isBalanced(root.right);
+
     }
-    public int height(TreeNode root){
+    public int maxDepth(TreeNode root) {
         if(root==null){
             return 0;
         }
-        int a=height(root.left)+1;
-        int b=height(root.right)+1;
-        return Math.max(a,b);
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
     }
-    
 }
