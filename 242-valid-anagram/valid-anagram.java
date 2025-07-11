@@ -48,13 +48,12 @@ class Solution{
         Arrays.sort(a);
         Arrays.sort(b);
         int i=0;
-        while(i<s.length()){
-            if(a[i]!=b[i]){
-                return false;
-            }
-            i++;
+        if(Arrays.equals(a,b)){
+           return true;
+        }else{
+            return false;
         }
-        return true;
+        
         }
         return s.length()==t.length();
 
