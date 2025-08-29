@@ -1,7 +1,7 @@
 class Solution {
     public int coinChange(int[] arr, int s) {
         int n=arr.length;
-        int INF=1000000000;
+        int INF=Integer.MAX_VALUE-1;
         int dp[][]=new int[n+1][s+1];
         for(int i=0;i<=s;i++){
             dp[0][i]=INF;
@@ -26,7 +26,7 @@ class Solution {
                 }
             }
         }
-        if(dp[n][s]==1000000000){
+        if(dp[n][s]==Integer.MAX_VALUE-1){
             return -1;
         }
         return dp[n][s];
