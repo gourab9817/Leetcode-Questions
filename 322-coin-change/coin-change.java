@@ -6,9 +6,9 @@ class Solution {
         for(int i=0;i<=s;i++){
             dp[0][i]=INF;
         }
-        for(int i=0;i<=n;i++){
-            dp[i][0]=0;
-        }
+        // for(int i=0;i<=n;i++){
+        //     dp[i][0]=0;
+        // }
         for(int i=0;i<s;i++ ){
             if(i%arr[0]==0){
                 dp[0][i]=i/arr[0];
