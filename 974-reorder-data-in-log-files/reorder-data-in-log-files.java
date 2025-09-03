@@ -3,14 +3,14 @@ class Solution {
         // Arrays.sort(logs);
         // return logs;
         List<String> st = new ArrayList<>();
-List<String> st2 = new ArrayList<>();
+        List<String> st2 = new ArrayList<>();
 
         for(int i=0;i<arr.length;i++){
             String s=arr[i];
-            int x=s.length()-1;
+            // int x=s.length()-1;
             String[] parts = s.split(" ", 2);
-String content = parts[1];
-boolean isNumeric = Character.isDigit(content.charAt(0));
+            String content = parts[1];
+            boolean isNumeric = Character.isDigit(content.charAt(0));
 
             if(isNumeric){
                 st.add(s);
@@ -22,16 +22,15 @@ boolean isNumeric = Character.isDigit(content.charAt(0));
 
         }
         String arr1[] = st2.toArray(new String[0]);
-Arrays.sort(arr1, (a, b) -> {
-    String[] splitA = a.split(" ", 2);
-    String[] splitB = b.split(" ", 2);
-    int cmp = splitA[1].compareTo(splitB[1]);
-    if (cmp == 0) return splitA[0].compareTo(splitB[0]);
-    return cmp;
-});
+        Arrays.sort(arr1, (a, b) -> {
+        String[] splitA = a.split(" ", 2);
+        String[] splitB = b.split(" ", 2);
+        int cmp = splitA[1].compareTo(splitB[1]);
+        if (cmp == 0) return splitA[0].compareTo(splitB[0]);
+            return cmp;
+        });
 
-String arr2[] = st.toArray(new String[0]); // no sorting
-
+        String arr2[] = st.toArray(new String[0]); 
         for(int x=0;x<arr1.length;x++){
             arr[x]=arr1[x];
         }
