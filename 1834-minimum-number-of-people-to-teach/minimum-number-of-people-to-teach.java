@@ -70,3 +70,45 @@ class Solution {
         return false;
     }
 }
+
+
+
+
+
+// class Solution {
+//     public int minimumTeachings(int n, int[][] l, int[][] f) {
+//         // Step 1: find all problematic users
+//         Set<Integer> users = new HashSet<>();
+//         for (int[] pair : f) {
+//             if (!canCommunicate(l, pair[0], pair[1])) {
+//                 users.add(pair[0]);
+//                 users.add(pair[1]);
+//             }
+//         }
+
+//         // Step 2: frequency array for languages
+//         int[] freq = new int[n + 1];   // 1..n languages
+//         for (int u : users) {
+//             for (int lang : l[u - 1]) {
+//                 freq[lang]++;   // this user knows this language
+//             }
+//         }
+
+//         // Step 3: find max
+//         int max = 0;
+//         for (int i = 1; i <= n; i++) {
+//             max = Math.max(max, freq[i]);
+//         }
+
+//         // Step 4: result
+//         return users.size() - max;
+//     }
+
+//     // helper to check if two users can already talk
+//     private boolean canCommunicate(int[][] l, int a, int b) {
+//         Set<Integer> s = new HashSet<>();
+//         for (int x : l[a - 1]) s.add(x);
+//         for (int x : l[b - 1]) if (s.contains(x)) return true;
+//         return false;
+//     }
+// }
