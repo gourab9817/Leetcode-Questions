@@ -10,7 +10,6 @@ class Solution {
             }
         }
         
-        
         if(size>0){
             return true;
         }
