@@ -1,15 +1,15 @@
 class Solution {
     public boolean doesAliceWin(String s) {
-        ArrayList<Character> al = new ArrayList<>();
+        int size=0;
         int n=s.length();
 
         for (int i=0;i<n;i++){
             char c=s.charAt(i);
             if(isvowel(c)){
-                al.add(c);
+                size++;
             }
         }
-        int size=al.size();
+        
         
         if(size>0&& size%2==0){
             return true;
