@@ -11,9 +11,7 @@ class Solution {
         }
         
         
-        if(size>0&& size%2==0){
-            return true;
-        }else if (size>0 && size%2!=0){
+        if(size>0){
             return true;
         }
         return false;
