@@ -1,27 +1,23 @@
 class Solution {
     public int maxFreqSum(String s) {
         
+      int max=0;
+      int max2=0;
         HashMap<Character,Integer> map=new HashMap<>();
         HashMap<Character,Integer> map2=new HashMap<>();
       for(int i=0;i<s.length();i++){
         if(!isvowel(s.charAt(i))){
-            map2.put(s.charAt(i),map2.getOrDefault(s.charAt(i),0)+1);
+            int c=map2.getOrDefault(s.charAt(i),0)+1;
+            map2.put(s.charAt(i),c);
+            max=Math.max(max,c);
         }else{
-            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+            int d=map.getOrDefault(s.charAt(i),0)+1;
+            map.put(s.charAt(i),d);
+            max2=Math.max(max2,d);
         }
       }  
-      ArrayList<Integer> al=new ArrayList<>(map.values());
-      ArrayList<Integer> al2=new ArrayList<>(map2.values());
-      int max=0;
-      int max2=0;
-      for(int i=0;i<al.size();i++){
-        max=Math.max(max,al.get(i));
-        
-      }
-      for(int i=0;i<al2.size();i++){
-        max2=Math.max(max2,al2.get(i));
-        
-      }
+      
+      
 
       return max+max2;
     }
