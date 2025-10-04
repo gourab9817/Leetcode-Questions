@@ -20,18 +20,8 @@ public class Solution {
             }
         }
         
-        return maxwater; // Return the result instead of printing
+        return maxwater; 
     }
 
-    public static void main(String[] args) {
-        // Example 1: Create and initialize the array
-        int[] containerval = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        int maxwater = maxArea(containerval);
-        System.out.println(maxwater); // Expected output: 49
-
-        // Example 2: Create and initialize the array
-        int[] containerval2 = {1, 1};
-        int maxwater2 = maxArea(containerval2);
-        System.out.println(maxwater2); // Expected output: 1
-    }
+    
 }
