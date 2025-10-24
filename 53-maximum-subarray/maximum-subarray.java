@@ -1,17 +1,25 @@
-public class Solution {
-    public static int maxSubArray(int nums[]) {
-        int currentsum = 0;
-        int maxsum = Integer.MIN_VALUE;
-        for (int i = 0; i < nums.length; i++) {
-            currentsum = Math.max(nums[i],currentsum + nums[i]);
-            maxsum=Math.max(currentsum,maxsum);   
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int curr=0;
+        int max=Integer.MIN_VALUE;
+        int min=Integer.MIN_VALUE;
+        int x=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]<0){
+                min=Math.max(min,nums[i]);
+                x++;
+            }
+            if(x==nums.length){
+                return min;
+            }
         }
-        System.out.println("The maximum sub array sum is " + maxsum);
-        return maxsum;
-    }
-
-    public static void main(String[] args) {
-        int nums[] = { -2, -3, -4, -1, -2, -1, -5, -3 };
-        maxSubArray(nums);
+        for(int i=0;i<nums.length;i++){
+            curr+=nums[i];
+            if(curr<0){
+                curr=0;
+            }
+            max=Math.max(curr,max);
+        }
+        return max;
     }
 }
