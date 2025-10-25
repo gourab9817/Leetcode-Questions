@@ -1,14 +1,16 @@
 class Solution {
-    public boolean containsDuplicate(int[] arr) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i=0;i<arr.length;i++){
-            int x=arr[i];
-            int a=map.getOrDefault(x,0)+1;
-            map.put(x,a);
-            if(a>1){
+    public boolean containsDuplicate(int[] nums) {
+        int n=0;
+        HashMap<Integer,Integer>map=new HashMap<>();
+
+        for(int i:nums){
+            int x=map.getOrDefault(i,0)+1;
+            map.put(i,x);
+            if(x>1){
                 return true;
             }
         }
         return false;
+        
     }
 }
