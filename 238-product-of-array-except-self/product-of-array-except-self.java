@@ -1,12 +1,9 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int count=1;
-        int zeroproduct=1;
         int zero=0;
         for(int i : nums){
             count *= i==0 ? zero+=1 & 1:i;
-            zeroproduct *= i==0?0:1;
-
         }
         int returnarr[]=new int[nums.length];
         for(int i=0;i<nums.length;i++){
@@ -23,3 +20,4 @@ class Solution {
         return returnarr;
     }
 }
+// I ave writtin this code
