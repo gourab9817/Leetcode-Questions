@@ -9,49 +9,52 @@
  * }
  */
 class Solution {
-    public static ListNode midNode(ListNode head){
+    public void reorderList(ListNode head) {
+
+        if(head==null || head.next==null || head.next.next==null){
+            return ;
+        }
+        //get the mid and broke 2nd part
+        ListNode temp=head;
+        ListNode mid=help(head);
+        ListNode second=mid.next;
+        mid.next=null;
+        //reverse 2nd 
+        ListNode head2=reverse(second);
+        while(head2!=null ){
+            ListNode t2=temp.next;
+            ListNode t3=head2.next;
+            temp.next=head2;
+            head2.next=t2;
+            head2=t3;
+            temp=t2;
+
+        }
+        
+    }
+    public static ListNode help(ListNode head){
         ListNode slow=head;
-        ListNode fast=head.next;
-        while(fast!=null&& fast.next!= null){
+        ListNode fast=head;
+        ListNode temp1=head;
+        while(fast.next!=null && fast.next.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
-        return slow;
-    
+        temp1 =slow;
+        // ListNode temp2=slow.next;
+        // reverse(temp);
+        return temp1;
+
     }
     public static ListNode reverse(ListNode head){
-        ListNode mid=midNode(head);
-        ListNode curr=mid.next;
-        mid.next=null;
+        ListNode curr=head;
         ListNode prev=null;
-        ListNode next=null;
-
         while(curr!=null){
-            next=curr.next;
+            ListNode Next=curr.next;
             curr.next=prev;
             prev=curr;
-            curr=next;
+            curr=Next;
         }
         return prev;
-    }
-    public ListNode reorderList(ListNode head) {
-        ListNode mergell=new ListNode(-1);
-        ListNode flag=mergell;
-        ListNode mid=midNode(head);
-        ListNode second=reverse(head);
-        ListNode temp=head;
-        while(second!=null){
-           ListNode tempNext = temp.next; // Save next of the first half
-            ListNode secondNext = second.next; // Save next of the reversed second half
-
-            temp.next = second; // Link first half node to second half node
-            second.next = tempNext; // Link reversed second half node to next first half node
-
-            temp = tempNext; // Move to the next first half node
-            second = secondNext;
-        }
-        
-        
-        return head;
     }
 }
